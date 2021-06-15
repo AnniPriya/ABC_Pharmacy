@@ -1,0 +1,50 @@
+[
+  {
+    "Name": "Paracetamol",
+    "Brand": "Apollo",
+    "Price": 20.3,
+    "Quantity": 18,
+    "ExpiryDate": "20-03-2023",
+    "Notes": "For fever"
+  },
+  {
+    "Name": "Dolo 650",
+    "Brand": "Apollo",
+    "Price": 30.3,
+    "Quantity": 3,
+    "ExpiryDate": "20-04-2023",
+    "Notes": "For fever"
+  },
+  {
+    "Name": "Cetcip",
+    "Brand": "Apollo",
+    "Price": 20.5,
+    "Quantity": 67,
+    "ExpiryDate": "20-06-2023",
+    "Notes": "For cough and cold"
+  },
+  {
+    "Name": "Cetrazine",
+    "Brand": "Apollo",
+    "Price": 50.0,
+    "Quantity": 1,
+    "ExpiryDate": "17-06-2021",
+    "Notes": "For cough and cold"
+  },
+  {
+    "Name": "Anything",
+    "Brand": "Something",
+    "Price": 20.0,
+    "Quantity": 2,
+    "ExpiryDate": "17-06-2021",
+    "Notes": "Nothing"
+  },
+  {
+    "Name": "Cetrazine",
+    "Brand": "Apollo",
+    "Price": 90.0,
+    "Quantity": 4,
+    "ExpiryDate": "20-11-2030",
+    "Notes": "Nothing"
+  }
+]

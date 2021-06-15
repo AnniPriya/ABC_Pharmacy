@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Medicine>
+
+@{
+    ViewData["Title"] = "GetMedicines";
+}
+
+<h1>GetMedicines</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpiryDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                Rs.@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            @if (item.Quantity < 10)
+            {
+                <td style="background-color:yellow">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            }
+            @if (DateTime.Parse(item.ExpiryDate) < DateTime.Today.AddDays(30))
+            {
+                <td style="background-color:red">
+                    @Html.DisplayFor(modelItem => item.ExpiryDate)
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpiryDate)
+                </td>
+            }
+            <td>
+            @Html.ActionLink("Buy", "Buy", "Medicines") |
+            @Html.ActionLink("Delete", "Delete", "Medicines")
+        </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,84 @@
+﻿<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        
+    });
+    function CreateMedicine(_medicine) {
+            $.ajax({
+                url: '@Url.Action("create", "Medicines")',
+                data: { medicine: _medicine },
+                cache: false,
+                type: "POST",
+                dataType: "json",
+                success: function (data, statusText, jqXHR) {
+                    alert(jqXHR.statusText);
+                },
+                Error: function (jqXHR) {
+                    alert(jqXHR.statusText);
+                }
+            });
+    }
+</script>
+@model ABC_Pharmacy.Models.Medicine
+
+@{
+    ViewData["Title"] = "Add Medicine";
+}
+
+<h1>Add Medicine Details</h1>
+
+<h4>Medicine</h4>
+<hr />
+
+@using (Html.BeginForm("create", "Medicines", FormMethod.Post))
+{
+    ABC_Pharmacy.Models.Medicine medicine = new ABC_Pharmacy.Models.Medicine();
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="@medicine.Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Brand" class="control-label"></label>
+                    <input asp-for="@medicine.Brand" class="form-control" />
+                    <span asp-validation-for="Brand" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="@medicine.Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label"></label>
+                    <input asp-for="@medicine.Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExpiryDate" class="control-label"></label>
+                    <input asp-for="@medicine.ExpiryDate" class="form-control" />
+                    <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Notes" class="control-label"></label>
+                    <input asp-for="@medicine.Notes" class="form-control" />
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="GetMedicines">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+}
